@@ -2,79 +2,110 @@ require("dotenv").config();
 
 var axios = require("axios");
 var moment = require("moment");
-var Spotify = require('node-spotify-api');
-var fs = require('fs');
 
+
+var fs = require('fs');
 var keys = require("./keys.js");
 
-var spotify = new Spotify(keys.spotify);
-var song = "";
-var movie = "";
-var artist = "";
+var artist = "", 
+song = "", 
+movie = "";
 
 
-//   liri.js will be able to talk in one of the following commands:
-// 
-// * `concert-this`
+// console.log("env file is " + process.env);
+
 var concertThis = function () {
     axios
-    .get("https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp").then(
-        function (response) {
-            console.log(response);
-            // need to pull correct data from response and change date format using Moment
-        }
-    ).catch(function (error) {
-        console.log(error);
-})
+        .get("https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp&date=upcoming").then(
+            function (response) {
+                var arrayObj = response.data;
+                // loop through array of object
+                for (var i = 0; i < arrayObj.length; i++) {
+                    console.log(arrayObj[i].venue.name, arrayObj[i].venue.city + ", " + arrayObj[i].venue.region, moment(arrayObj[i].datetime).format("MM/DD/YYYY"));
+                    // if (!i) { break; }
+                }
+            }
+
+        ).catch(function (error) {
+            console.log(error);
+        })
 }
 
-var spotifySong = function () {
+// concertThis();
+
+var Spotify = require('node-spotify-api');
+var spotify = new Spotify(
+    {
+        id: '594b2a6d8c4f4b06ae858f0022800df1',
+        secret: 'ecc8dcade6344304b31c25dbc39721ed'
+    }
+);
+
+var spotifySong = function (song) {
     spotify
         .search({ type: 'track', query: song })
         .then(function (response) {
-            console.log(response);
+            for (var i = 0; i < 15; i++) {
+                console.log("Here's your song info. Artist: " + response.tracks.items[i].artists[i].name + " Song name: " + response.tracks.items[i].name);
+                console.log("The album name: " + response.tracks.items[i].album.name + "  Song preview: " + response.tracks.items[i].external_urls.spotify);
+                if (!i) { break; }
+
+            }
         })
         .catch(function (err) {
             console.log("error occurred during spotifySong function" + err);
-
-            // need to pull correct data from response and reformat into correct data to print out
-        })
-
+        });
 }
+
+// spotifySong();
+
+
 var movieThis = function () {
-    axios.get("http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy").then(
-        function (response) {
-            console.log(response);
+    axios.get("http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy")
+        .then(function (response) {
             console.log(response.data.Title, response.data.Year, response.data.imdbRating, response.data.Ratings[1].Source, response.data.Ratings[1].Value, response.data.Country, response.data.Language, response.data.Plot, response.data.Actors);
         }
-    );
+        );
 }
+// movieThis();
+
+// this function is not executing, getting a callback error, it says callback must be a function
+data = [];
 
 var readIt = function () {
-    fs.readFile('random.txt')
-    directions();
-    console.log("I just read the file");
+    fs.readFile('./random.txt', 'utf8', function read(err, data) {
+        if (err) { throw err;            
+        }
+        // directions(data);
+        var text = data.split(",");
+        console.log("Your file says: " + text[0], text[1]);
+        var textNew = text[1];
+        spotifySong(textNew);
+        // return text;
+    })
 }
+// readIt();
 
 var directions = function () {
     if (process.argv[2] === "concert-this") {
-        var artist = process.argv[3];
-        concertThis();
+        // var artist = process.argv[3];
+        concertThis(process.argv[3]);
     } else if (process.argv[2] === "spotify-this-song") {
-        var song = process.argv[3];
-        if (process.argv[3] === false) {
-            var song = "The Sign"
+        // var song = process.argv[3];
+        if (!process.argv[3]) {
             console.log("Your default song is 'The Sign' by 'Ace of Base'");
         }
-        spotifySong();
+        spotifySong(process.argv[3]);
     } else if (process.argv[2] === "movie-this") {
-        var movie = process.argv[3];
+        // var movie = process.argv[3];
+        
         if (process.argv[3] === false) {
-            var movie = "Mr. Nobody"
+            process.argv[3] = "Mr. Nobody"
             console.log("Your default movie is 'Mr. Nobody'.");
         }
-        movieThis();
-    } else if (process.argv === "do-what-it-says") {
+        movieThis(process.argv[3]);
+    } else if (process.argv[2] === "do-what-it-says") {
+        console.log("going to readIt");
         readIt();
     } else {
         console.log("WHAT??!!!  START MAKING SENSE!")
