@@ -30,7 +30,7 @@ In the terminal, type the following:
 
 
     We can copy the song preview link to see play the song.
-
+<img width="1016" alt="Screen Shot 2019-04-15 at 11 52 55 PM" src="https://user-images.githubusercontent.com/48226041/56188388-3ea4ae80-5fda-11e9-9527-2ba8bf52dd5d.png">
 
 
 
