@@ -16,7 +16,7 @@ In the terminal, type the following:
 
 
     Once we hit enter, upcoming concert venues, locations and dates are displayed for that artist.
-
+<img width="599" alt="Screen Shot 2019-04-15 at 11 53 52 PM" src="https://user-images.githubusercontent.com/48226041/56188527-980cdd80-5fda-11e9-9aaa-5c99d91c8bcc.png">
 
 2) Learn more about your favorite songs!
 In the terminal, type the following:
