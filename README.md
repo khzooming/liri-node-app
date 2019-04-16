@@ -41,24 +41,29 @@ In the terminal, type the following:
         node liri.js movie-this
         
  and then enter the movie title.  Add Underscore to cover any spaces between your words.
- 
+ <img width="587" alt="Screen Shot 2019-04-16 at 12 13 21 AM" src="https://user-images.githubusercontent.com/48226041/56189585-25e9c800-5fdd-11e9-8147-ee69a0416ef1.png">
  
  
  Once we hit enter, lots of info about the movie is printed out including:
-        Title of the movie
-        Year the movie came out
-        IMDB Rating of the movie
-        Rotton Tomatoes Rating of the movie
-        Country where the movie was produced
-        Language of the Movie
-        Plot of the movie
-        Actors in the movie
-        
+       * Title of the movie
+       * Year the movie came out
+       * IMDB Rating of the movie
+       * Rotton Tomatoes Rating of the movie
+       * Country where the movie was produced
+       * Language of the Movie
+       * Plot of the movie
+       * Actors in the movie
+<img width="596" alt="Screen Shot 2019-04-16 at 12 13 32 AM" src="https://user-images.githubusercontent.com/48226041/56189618-38640180-5fdd-11e9-8c4d-9db8d92740d3.png">
+
+
 4) The last step our program does is to do a mystery song.  
 In the terminal, type the following:
         node liri.js do-what-it-says
-        
- Once we hit enter, this search was for a song called "I want it that way" by the Backstreet Boys.
+ <img width="601" alt="Screen Shot 2019-04-16 at 12 15 37 AM" src="https://user-images.githubusercontent.com/48226041/56189662-5a5d8400-5fdd-11e9-8323-7fe296de94c8.png">        
+ 
+ Once we hit enter, we learn that our search was for a song called "I want it that way" by the Backstreet Boys.
+<img width="601" alt="Screen Shot 2019-04-16 at 12 16 13 AM" src="https://user-images.githubusercontent.com/48226041/56189687-68aba000-5fdd-11e9-8005-7bc72923ddb7.png">
+
  
  Thanks for using the liri app, I hope you had fun!  
     
