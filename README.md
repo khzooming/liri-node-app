@@ -24,7 +24,7 @@ In the terminal, type the following:
 In the terminal, type the following:
         node liri.js spotify-this-song
     
-    and then enter the name of your song title.  In the example below we are using the song "FourFiveSeconds" by Paul McCartney and Rihanna.
+    and then enter the name of your song title.  In the example below we are using the song "FourFiveSeconds" by Paul McCartney and Rihanna.  If you enter song titles with spaces, it's necessary to add underscore between the words where the spaces would typically go.
   <img width="596" alt="Screen Shot 2019-04-15 at 11 53 41 PM" src="https://user-images.githubusercontent.com/48226041/56188464-701d7a00-5fda-11e9-8193-5a4def9f90c4.png">  
     
 
@@ -32,11 +32,35 @@ In the terminal, type the following:
 <img width="599" alt="Screen Shot 2019-04-15 at 11 53 52 PM" src="https://user-images.githubusercontent.com/48226041/56188527-980cdd80-5fda-11e9-9aaa-5c99d91c8bcc.png">
 
 
-    We can copy the song preview link to see play the song.
+    We can copy the song preview link to see the song online and play it.
 <img width="1016" alt="Screen Shot 2019-04-15 at 11 52 55 PM" src="https://user-images.githubusercontent.com/48226041/56188388-3ea4ae80-5fda-11e9-9527-2ba8bf52dd5d.png">
 
 
-
+3) Check out details for a movie of your choice.
+In the terminal, type the following:
+        node liri.js movie-this
+        
+ and then enter the movie title.  Add Underscore to cover any spaces between your words.
+ 
+ 
+ 
+ Once we hit enter, lots of info about the movie is printed out including:
+        Title of the movie
+        Year the movie came out
+        IMDB Rating of the movie
+        Rotton Tomatoes Rating of the movie
+        Country where the movie was produced
+        Language of the Movie
+        Plot of the movie
+        Actors in the movie
+        
+4) The last step our program does is to do a mystery song.  
+In the terminal, type the following:
+        node liri.js do-what-it-says
+        
+ Once we hit enter, this search was for a song called "I want it that way" by the Backstreet Boys.
+ 
+ Thanks for using the liri app, I hope you had fun!  
     
     
 
