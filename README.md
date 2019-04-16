@@ -12,6 +12,7 @@ In the terminal, type the following:
         node liri.js concert-this
     
     and then enter the name of your band.  In the example below we are using Paul McCartney.
+    <img width="577" alt="Screen Shot 2019-04-15 at 11 20 51 PM" src="https://user-images.githubusercontent.com/48226041/56187598-f3899c00-5fd7-11e9-91b9-6eeb86102c4f.png">
 
 
     Once we hit enter, upcoming concert venues, locations and dates are displayed for that artist.
