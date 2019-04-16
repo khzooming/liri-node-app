@@ -12,9 +12,7 @@ song = "",
 movie = "";
 
 
-// console.log("env file is " + process.env);
-
-var concertThis = function () {
+var concertThis = function (artist) {
     axios
         .get("https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp&date=upcoming").then(
             function (response) {
@@ -30,8 +28,6 @@ var concertThis = function () {
             console.log(error);
         })
 }
-
-// concertThis();
 
 var Spotify = require('node-spotify-api');
 var spotify = new Spotify(
@@ -57,19 +53,15 @@ var spotifySong = function (song) {
         });
 }
 
-// spotifySong();
-
-
-var movieThis = function () {
+var movieThis = function (movie) {
     axios.get("http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy")
         .then(function (response) {
             console.log(response.data.Title, response.data.Year, response.data.imdbRating, response.data.Ratings[1].Source, response.data.Ratings[1].Value, response.data.Country, response.data.Language, response.data.Plot, response.data.Actors);
         }
         );
 }
-// movieThis();
 
-// this function is not executing, getting a callback error, it says callback must be a function
+
 data = [];
 
 var readIt = function () {
@@ -84,7 +76,6 @@ var readIt = function () {
         // return text;
     })
 }
-// readIt();
 
 var directions = function () {
     if (process.argv[2] === "concert-this") {
