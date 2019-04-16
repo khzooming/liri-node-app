@@ -23,7 +23,7 @@ In the terminal, type the following:
         node liri.js spotify-this-song
     
     and then enter the name of your song title.  In the example below we are using the song "FourFiveSeconds" by Paul McCartney and Rihanna.
-
+<img width="596" alt="Screen Shot 2019-04-15 at 11 53 41 PM" src="https://user-images.githubusercontent.com/48226041/56188464-701d7a00-5fda-11e9-8193-5a4def9f90c4.png">
 
     Once we hit enter, the artist name, song title, and a preview link for the song are displayed.
 
